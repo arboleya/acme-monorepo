@@ -1,0 +1,43 @@
+{
+  "name": "acme",
+  "version": "0.0.0",
+  "type": "module",
+  "main": "src/acme.ts",
+  "module": "src/acme.ts",
+  "types": "src/acme.ts",
+  "bin": {
+    "acme": "acme.mts"
+  },
+  "exports": {
+    ".": "./src/acme.ts"
+  },
+  "publishConfig": {
+    "main": "dist/cjs/acme.js",
+    "module": "dist/esm/acme.js",
+    "types": "dist/types/acme.d.ts",
+    "bin": {
+      "acme": "acme.mjs"
+    },
+    "exports": {
+      ".": {
+        "types": "./dist/types/acme.d.ts",
+        "require": "./dist/cjs/acme.js",
+        "import": "./dist/esm/acme.js"
+      }
+    },
+    "typesVersions": {
+      ">=4.0": {
+        "*": ["./dist/types/*"]
+      }
+    }
+  },
+  "files": ["dist", "src", "acme.mjs", "acme.mts"],
+  "scripts": {
+    "build:esm": "bun build src/{acme,run}.ts --outdir dist/esm --format esm --sourcemap=linked",
+    "build:cjs": "bun build src/{acme,run}.ts --outdir dist/cjs --format cjs --sourcemap=linked",
+    "build:types": "tsc --project tsconfig.json --outDir dist/types --declarationMap --declaration",
+    "build": "pnpm build:esm && pnpm build:cjs && pnpm build:types"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "lib": ["ESNext"],
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleDetection": "force",
+    "allowJs": false,
+    /* Bundler mode */
+    "moduleResolution": "node",
+    "verbatimModuleSyntax": true,
+    "noEmit": false,
+    /* Linting */
+    "skipLibCheck": true,
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true
+    // root types
+    // "types": ["bun"]
+  },
+  "exclude": [".history", "**/*.test.ts", "dist", "node_modules"]
+}

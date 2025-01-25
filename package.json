@@ -1,0 +1,36 @@
+{
+  "name": "fuel-sdk",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Fuel Typescript SDK",
+  "scripts": {
+    "build": "bun run --filter='*' build",
+    "test": "vitest run --coverage",
+    "lint": "biome check",
+    "lintfix": "biome check --write",
+    "format": "biome format",
+    "formatfix": "biome format --write",
+    "drypub": "bun run scripts/drypub.ts",
+    "bunshift": "bun run scripts/bunshift.ts",
+    "ci:pnpm": "pnpm install && run-s drypub build test",
+    "ci:bun": "bun install && run-s drypub bunshift build test"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.7.3",
+    "@types/bun": "^1.1.10",
+    "@vitest/coverage-istanbul": "3.0.4",
+    "globby": "^14.0.2",
+    "npm-run-all": "^4.1.5",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.4",
+    "typescript": "5.6.3",
+    "vitest": "^3.0.4",
+    "@types/node": "^20.12.12"
+  },
+  "dependencies": {
+    "acme": "workspace:*"
+  },
+  "workspaces": ["apps/*", "packages/*", "tests/*"],
+  "packageManager": "pnpm@9.1.0"
+}

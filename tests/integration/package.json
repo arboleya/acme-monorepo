@@ -1,0 +1,9 @@
+{
+  "name": "acme-gauge",
+  "version": "0.0.0",
+  "type": "module",
+  "dependencies": {
+    "acme": "workspace:*",
+    "create-acme": "workspace:*"
+  }
+}

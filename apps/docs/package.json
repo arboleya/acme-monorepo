@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "name": "fuel-docs",
+  "module": "src/index.ts",
+  "type": "module",
+  "dependencies": {
+    "create-acme": "workspace:*",
+    "acme": "workspace:*"
+  }
+}

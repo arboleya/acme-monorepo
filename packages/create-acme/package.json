@@ -1,0 +1,45 @@
+{
+  "name": "create-acme",
+  "version": "0.0.0",
+  "type": "module",
+  "main": "src/create-acme.ts",
+  "module": "src/create-acme.ts",
+  "types": "src/create-acme.ts",
+  "bin": {
+    "create-acme": "create-acme.mts"
+  },
+  "exports": {
+    ".": "./src/create-acme.ts"
+  },
+  "publishConfig": {
+    "main": "dist/cjs/create-acme.js",
+    "module": "dist/esm/create-acme.js",
+    "types": "dist/types/create-acme.d.ts",
+    "bin": {
+      "create-acme": "create-acme.mjs"
+    },
+    "exports": {
+      ".": {
+        "types": "./dist/types/create-acme.d.ts",
+        "require": "./dist/cjs/create-acme.js",
+        "import": "./dist/esm/create-acme.js"
+      }
+    },
+    "typesVersions": {
+      ">=4.0": {
+        "*": ["./dist/types/*"]
+      }
+    }
+  },
+  "files": ["dist", "src", "create-acme.mjs", "create-acme.mts"],
+  "scripts": {
+    "build:esm": "bun build src/{create-acme,run}.ts --outdir dist/esm --format esm --sourcemap=linked",
+    "build:cjs": "bun build src/{create-acme,run}.ts --outdir dist/cjs --format cjs --sourcemap=linked",
+    "build:types": "tsc --project tsconfig.json --outDir dist/types --declarationMap --declaration",
+    "build": "pnpm build:esm && pnpm build:cjs && pnpm build:types"
+  },
+  "dependencies": {
+    "acme": "workspace:*"
+  },
+  "devDependencies": {}
+}
